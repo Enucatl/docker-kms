@@ -1,5 +1,8 @@
 services:
   server:
+    extends:
+      file: ../compose-security-baseline/hardening.yml
+      service: hardened-small
     image: 11notes/kms:1.0.3
     restart: unless-stopped
     environment:
@@ -10,6 +13,9 @@ services:
       - var:/kms/var
 
   gui:
+    extends:
+      file: ../compose-security-baseline/hardening.yml
+      service: hardened-small
     image: 11notes/kms-gui:1.0.3
     restart: unless-stopped
     depends_on:
