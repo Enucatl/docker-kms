@@ -17,7 +17,7 @@ services:
       file: ../compose-security-baseline/hardening.yml
       service: hardened-small
     image: 11notes/kms-gui:1.0.3
-    restart: unless-stopped
+    restart: no
     depends_on:
       server:
         condition: "service_healthy"
